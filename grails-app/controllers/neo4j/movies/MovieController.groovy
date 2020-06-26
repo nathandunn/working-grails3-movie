@@ -37,4 +37,9 @@ class MovieController {
         respond movieService.graph(params.int('limit', 100))
     }
     //end::graph[]
+
+    def dynamicQuery() {
+        println "dynamic query"
+        respond {}
+    }
 }
