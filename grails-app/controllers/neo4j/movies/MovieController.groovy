@@ -1,9 +1,11 @@
 package neo4j.movies
 
+import grails.converters.JSON
 import groovy.transform.CompileStatic
+import org.grails.web.json.JSONObject
 
 //tag::controller[]
-@CompileStatic
+//@CompileStatic
 class MovieController {
     static responseFormats = ['json', 'xml']
 //end::controller[]
@@ -41,5 +43,19 @@ class MovieController {
     def dynamicQuery() {
         println "dynamic query"
         respond {}
+    }
+
+    def findByTitle(String title){
+        println "type 2 "
+        def movie = movieService.dynamicFind(title)
+//        println "trying to find by title ${title}"
+//        def movie = Movie.findByTitleIlike("%"+title+"%")
+        println "found ${movie}"
+        if(movie){
+            respond movie
+        }
+        else{
+            render new JSONObject() as JSON
+        }
     }
 }

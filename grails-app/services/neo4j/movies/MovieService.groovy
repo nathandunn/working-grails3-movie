@@ -11,7 +11,7 @@ import groovy.transform.CompileDynamic
 import groovy.transform.CompileStatic
 
 @SuppressWarnings(['UnusedVariable', 'SpaceAfterOpeningBrace', 'SpaceBeforeClosingBrace'])
-@CompileStatic
+//@CompileStatic
 @Transactional
 @Service(Movie)
 abstract class MovieService {
@@ -93,5 +93,9 @@ abstract class MovieService {
         ).save(failOnError: true ,flush: true)
         println "created!"
         return movie
+    }
+
+    Movie dynamicFind(String title){
+        return Movie.findByTitleIlike("%"+title+"%")
     }
 }

@@ -7,9 +7,10 @@ class UrlMappings {
         "/movie/$title"(controller: 'movie', action: 'show') // <1>
         '/search'(controller: 'movie', action: 'search') // <2>
         "/create/$title/$tagline"(controller: 'movie', action: 'create') // <2>
-        '/graph'(controller: 'movie', action: 'graph') // <3>
-        '/test1'(controller: 'grails', action: 'index') // <3>
-        '/test2'(controller: 'grails', action: 'test2') // <3>
+        "/graph"(controller: "movie", action: "graph") // <3>
+        "/test1"(controller: "grails", action: "index") // <3>
+        "/test2"(controller: "grails", action: "test2") // <3>
+        "/test3/$title"(controller: "movie", action: "findByTitle") // <3>
         //end::endpoints[]
 
         //tag::index[]

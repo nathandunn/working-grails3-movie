@@ -9,14 +9,14 @@ import grails.web.Controller
 class GrailsController {
     static responseFormats = ['json', 'xml']
 
-    Movie index(){
+    def index(){
         println "test"
         def movie = Movie.findByTitle("Developer")
         println "found it ${movie}"
         render movie as JSON
     }
 
-    Movie test2(){
+    def test2(){
         println "test2"
         respond "works2"
     }
